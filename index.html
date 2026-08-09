@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#07100d" />
+    <meta name="description" content="Sadab — developer portfolio, selected projects, skills and experimental lab." />
+    <meta property="og:title" content="Sadab.dev — Developer Portfolio" />
+    <meta property="og:description" content="Selected projects, skills and unfinished experiments by Sadab." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href="https://sadab.dev/" />
+    <link rel="alternate" type="application/rss+xml" title="Sadab.dev — Updates" href="/api/feed" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>Sadab.dev — Developer Portfolio</title>
+    <script type="application/ld+json">
+      {
+        "@context":"https://schema.org",
+        "@type":"Person",
+        "name":"Md Sadab",
+        "url":"https://sadab.dev/",
+        "jobTitle":"Developer",
+        "sameAs":[]
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+      #app-boot{position:fixed;inset:0;z-index:99999;display:grid;place-items:center;background:#07100d;color:#b8ff5a;transition:opacity .22s ease,visibility .22s ease;font-family:monospace}
+      #app-boot.boot-done{opacity:0;visibility:hidden;pointer-events:none}
+      #app-boot>div{grid-area:1/1}.boot-mark{font:800 4rem/1 system-ui;letter-spacing:-.08em}.boot-track{width:140px;height:2px;margin-top:105px;background:rgba(184,255,90,.15);overflow:hidden}.boot-track span{display:block;width:45%;height:100%;background:#b8ff5a;animation:bootload .7s ease-in-out infinite alternate}.boot-track+small{position:absolute;bottom:28px;font-size:9px;letter-spacing:.18em;opacity:.55}@keyframes bootload{from{transform:translateX(-110%)}to{transform:translateX(330%)}}
+      @media(prefers-reduced-motion:reduce){#app-boot{transition:none}.boot-track span{animation:none;width:100%}}
+    </style>
+  </head>
+  <body>
+    <div id="app-boot" aria-hidden="true"><div class="boot-mark">S</div><div class="boot-track"><span></span></div><small>INITIALIZING / SADAB.DEV</small></div>
+    <div id="root"></div><script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

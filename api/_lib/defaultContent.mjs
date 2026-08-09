@@ -1,0 +1,14 @@
+export const defaultContent = {
+  profile:{name:'Md Sadab',role:'Full-Stack Dev · Student · Linux Nerd',tagline:'Building things on the internet while learning.',location:'Katihar, Bihar, India',bio:'Developer portfolio, projects, experiments and the stuff still under construction.',resumeDriveLink:'https://drive.google.com/YOUR_RESUME_LINK_HERE',email:'your@email.com',githubUsername:'yourhandle'},
+  homepage:{eyebrow:'DEVELOPER / BUILDER',headline:'I build things for the web.',subheadline:'Full-stack experiments, polished interfaces and unfinished ideas.',primaryCta:'View projects',secondaryCta:'Open lab',availability:'OPEN TO BUILDING',announcement:'Currently building something new.',showAnnouncement:true},
+  now:{status:'Building & learning',learning:['Python','React','DSA'],building:['CodeHive Sensei'],exploring:['AI','Automation'],reading:'',updatedAt:new Date().toISOString()},
+  seo:{title:'Sadab.dev — Developer Portfolio',description:'Md Sadab — developer portfolio, projects, skills and experimental lab.',keywords:'Sadab, developer, portfolio, Python, React, web development',ogImage:'',canonicalBase:'https://sadab.dev'},
+  socials:[{label:'GitHub',icon:'🐙',url:'https://github.com/yourhandle'},{label:'LinkedIn',icon:'💼',url:'https://linkedin.com/in/yourhandle'},{label:'Instagram',icon:'📸',url:'https://instagram.com/yourhandle'},{label:'Twitter/X',icon:'𝕏',url:'https://x.com/yourhandle'},{label:'LeetCode',icon:'🧩',url:'https://leetcode.com/yourhandle'},{label:'Email',icon:'✉️',url:'mailto:your@email.com'}],
+  projects:[{id:'project-1',title:'Project One',desc:'Replace this placeholder with a real project.',tags:['React','Vite'],link:'#',icon:'🚀',status:'LIVE',image:'',featured:true,problem:'',solution:'',features:[],github:'',startedAt:'',updatedAt:''}],
+  skills:[{id:'skill-1',name:'JavaScript / React',level:85,note:'Building interfaces and interactive web apps.'},{id:'skill-2',name:'Python',level:75,note:'Backend, scripting and automation.'},{id:'skill-3',name:'Linux / Shell',level:80,note:'Daily-driver tooling and system work.'}],
+  funFacts:[{id:'fact-1',icon:'☕',label:'Coffee brewed',value:'500+ cups'},{id:'fact-2',icon:'🐧',label:'Daily driver',value:'Linux'}],
+  lab:[{id:'lab-1',title:'New experiment',desc:'A placeholder for an unfinished build.',tags:['EXPERIMENT'],status:'IN PROGRESS',link:'#',icon:'🧪',image:'',reason:'',next:'',featured:false}],
+  gallery:[], guestbook:[], inbox:[], revisions:[], scheduled:[],
+  analytics:{visits:[]},
+  settings:{siteName:'Sadab.dev',siteDescription:'Md Sadab — developer portfolio, projects and experimental lab.',showAvailability:true,enableAIGuide:true,enableTerminal:true,enableGuestbook:true,enableAnalytics:true,enableGallery:true,enableEasterEggs:true,enableAnimations:true,maintenanceMode:false,announcementBar:true,themeDefault:'dark',accentLabel:'NEON LIME'},
+};

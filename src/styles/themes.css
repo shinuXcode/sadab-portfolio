@@ -1,0 +1,227 @@
+/* ===== THEME TOKENS =====
+   Every theme defines the same variable set.
+   Switch by setting data-theme on <html>.
+*/
+
+:root {
+  --font-display: 'Sora', sans-serif;
+  --font-body: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --radius: 20px;
+  --radius-sm: 12px;
+  --transition: 320ms cubic-bezier(.2,.8,.2,1);
+}
+
+/* 1. NEON CYBER — default */
+[data-theme='neon-cyber'] {
+  --bg: #0a0e14;
+  --bg-alt: #10151f;
+  --surface: rgba(255,255,255,0.04);
+  --surface-strong: rgba(255,255,255,0.08);
+  --border: rgba(0,255,200,0.25);
+  --text: #eef7f5;
+  --text-dim: #93a3a8;
+  --accent: #00ffc2;
+  --accent-2: #ff2fd6;
+  --accent-3: #6a5cff;
+  --glow: 0 0 40px rgba(0,255,194,0.25);
+}
+
+/* 2. SUNSET GLITCH */
+[data-theme='sunset-glitch'] {
+  --bg: #1a0f1f;
+  --bg-alt: #241228;
+  --surface: rgba(255,255,255,0.05);
+  --surface-strong: rgba(255,255,255,0.1);
+  --border: rgba(255,138,76,0.3);
+  --text: #fff2ea;
+  --text-dim: #cba3a8;
+  --accent: #ff6b4a;
+  --accent-2: #ffb84d;
+  --accent-3: #ff3d81;
+  --glow: 0 0 40px rgba(255,107,74,0.3);
+}
+
+/* 3. MATRIX TERMINAL */
+[data-theme='matrix-terminal'] {
+  --bg: #000804;
+  --bg-alt: #030d06;
+  --surface: rgba(0,255,90,0.04);
+  --surface-strong: rgba(0,255,90,0.09);
+  --border: rgba(0,255,90,0.3);
+  --text: #d6ffe4;
+  --text-dim: #5f9e77;
+  --accent: #00ff5e;
+  --accent-2: #00b894;
+  --accent-3: #8aff00;
+  --glow: 0 0 40px rgba(0,255,94,0.25);
+  --font-display: 'JetBrains Mono', monospace;
+}
+
+/* 4. PASTEL Y2K */
+[data-theme='pastel-y2k'] {
+  --bg: #fdf3fb;
+  --bg-alt: #f7e9fb;
+  --surface: rgba(255,255,255,0.6);
+  --surface-strong: rgba(255,255,255,0.9);
+  --border: rgba(180,120,220,0.25);
+  --text: #35223f;
+  --text-dim: #7a6285;
+  --accent: #ff7ac6;
+  --accent-2: #9a8cff;
+  --accent-3: #7fe3d0;
+  --glow: 0 0 40px rgba(255,122,198,0.35);
+}
+
+/* 5. HOLOGRAPHIC GLASS */
+[data-theme='holo-glass'] {
+  --bg: #0d1120;
+  --bg-alt: #131832;
+  --surface: rgba(255,255,255,0.06);
+  --surface-strong: rgba(255,255,255,0.12);
+  --border: rgba(160,180,255,0.3);
+  --text: #f1f3ff;
+  --text-dim: #9aa3d6;
+  --accent: #8ab4ff;
+  --accent-2: #c58aff;
+  --accent-3: #7cf7d6;
+  --glow: 0 0 50px rgba(138,180,255,0.3);
+}
+
+/* 6. MIDNIGHT MONO */
+[data-theme='midnight-mono'] {
+  --bg: #0b0b0d;
+  --bg-alt: #131315;
+  --surface: rgba(255,255,255,0.04);
+  --surface-strong: rgba(255,255,255,0.08);
+  --border: rgba(255,255,255,0.14);
+  --text: #f2f2f2;
+  --text-dim: #8a8a8f;
+  --accent: #ffffff;
+  --accent-2: #b0b0b0;
+  --accent-3: #6f6f6f;
+  --glow: 0 0 30px rgba(255,255,255,0.12);
+}
+
+/* 7. RETRO ARCADE */
+[data-theme='retro-arcade'] {
+  --bg: #150a24;
+  --bg-alt: #1f0f33;
+  --surface: rgba(255,255,255,0.05);
+  --surface-strong: rgba(255,255,255,0.1);
+  --border: rgba(255,214,0,0.3);
+  --text: #fdf6ff;
+  --text-dim: #b79ed1;
+  --accent: #ffd600;
+  --accent-2: #ff3860;
+  --accent-3: #3ad6ff;
+  --glow: 0 0 40px rgba(255,214,0,0.3);
+}
+
+/* 8. SOLAR FLARE */
+[data-theme='solar-flare'] {
+  --bg: #1c0f05;
+  --bg-alt: #241305;
+  --surface: rgba(255,255,255,0.05);
+  --surface-strong: rgba(255,255,255,0.1);
+  --border: rgba(255,153,0,0.3);
+  --text: #fff4e6;
+  --text-dim: #d0a37a;
+  --accent: #ff9900;
+  --accent-2: #ff4d00;
+  --accent-3: #ffd166;
+  --glow: 0 0 40px rgba(255,153,0,0.3);
+}
+
+/* 9. IRON HUD — Jarvis arc-reactor aesthetic */
+[data-theme='iron-hud'] {
+  --bg: #05070c;
+  --bg-alt: #0a0e17;
+  --surface: rgba(94,200,255,0.05);
+  --surface-strong: rgba(94,200,255,0.1);
+  --border: rgba(94,200,255,0.3);
+  --text: #eaf6ff;
+  --text-dim: #7d94a8;
+  --accent: #5ec8ff;
+  --accent-2: #ffb347;
+  --accent-3: #ff3b3b;
+  --glow: 0 0 45px rgba(94,200,255,0.3);
+}
+
+/* 10. ARCTIC FROST — clean light theme */
+[data-theme='arctic-frost'] {
+  --bg: #f4f8fc;
+  --bg-alt: #e9f1fa;
+  --surface: rgba(255,255,255,0.85);
+  --surface-strong: rgba(255,255,255,1);
+  --border: rgba(58,123,213,0.2);
+  --text: #10233d;
+  --text-dim: #55708c;
+  --accent: #3a7bd5;
+  --accent-2: #00c2b8;
+  --accent-3: #7c5cff;
+  --glow: 0 0 30px rgba(58,123,213,0.2);
+}
+
+/* 11. VAPOR GRID — synthwave */
+[data-theme='vapor-grid'] {
+  --bg: #140a24;
+  --bg-alt: #1d0f33;
+  --surface: rgba(255,94,200,0.05);
+  --surface-strong: rgba(255,94,200,0.1);
+  --border: rgba(255,94,200,0.3);
+  --text: #fbe9ff;
+  --text-dim: #b090c9;
+  --accent: #ff5ec8;
+  --accent-2: #5ecbff;
+  --accent-3: #ffe45e;
+  --glow: 0 0 45px rgba(255,94,200,0.3);
+}
+
+/* 12. BLUEPRINT DRAFT — light, technical-drawing aesthetic */
+[data-theme='blueprint-draft'] {
+  --bg: #eef3fb;
+  --bg-alt: #e2ebfa;
+  --surface: rgba(255,255,255,0.75);
+  --surface-strong: rgba(255,255,255,0.96);
+  --border: rgba(30,80,180,0.25);
+  --text: #0e2a4d;
+  --text-dim: #4c6a92;
+  --accent: #1e5cff;
+  --accent-2: #ff7a3d;
+  --accent-3: #00b3a4;
+  --glow: 0 0 30px rgba(30,92,255,0.2);
+  --font-display: 'JetBrains Mono', monospace;
+}
+
+/* 13. DEEP NEBULA — dark violet/space theme */
+[data-theme='deep-nebula'] {
+  --bg: #0b0716;
+  --bg-alt: #130c26;
+  --surface: rgba(180,140,255,0.05);
+  --surface-strong: rgba(180,140,255,0.1);
+  --border: rgba(180,140,255,0.28);
+  --text: #f1ebff;
+  --text-dim: #a394c9;
+  --accent: #b48cff;
+  --accent-2: #ff8ce0;
+  --accent-3: #6ce8ff;
+  --glow: 0 0 50px rgba(180,140,255,0.3);
+}
+
+/* 14. PAPER MONO — minimal, low-glow, print-inspired light theme */
+[data-theme='paper-mono'] {
+  --bg: #faf9f6;
+  --bg-alt: #f1efe9;
+  --surface: rgba(20,20,18,0.03);
+  --surface-strong: rgba(20,20,18,0.06);
+  --border: rgba(20,20,18,0.14);
+  --text: #191815;
+  --text-dim: #6b675e;
+  --accent: #191815;
+  --accent-2: #8a3324;
+  --accent-3: #2a5c45;
+  --glow: 0 0 0 rgba(0,0,0,0);
+  --radius: 6px;
+  --radius-sm: 4px;
+}

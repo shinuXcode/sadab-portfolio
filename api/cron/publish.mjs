@@ -1,0 +1,2 @@
+import { runScheduledPublish } from '../_lib/cms.mjs';
+export default async function handler(req,res){try{const secret=process.env.CRON_SECRET;if(secret&&req.headers['authorization']!==`Bearer ${secret}`)return res.status(401).json({error:'Unauthorized'});const published=await runScheduledPublish();return res.status(200).json({ok:true,published})}catch(e){return res.status(500).json({error:e.message||'Scheduled publish failed'})}}
