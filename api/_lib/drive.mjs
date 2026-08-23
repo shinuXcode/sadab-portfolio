@@ -11,19 +11,4 @@ export async function resolveFileId(){if(process.env.GOOGLE_DRIVE_FILE_ID)return
 export async function readCmsFile(){const fileId=await resolveFileId();if(!fileId)return null;const response=await driveFetch(`/files/${encodeURIComponent(fileId)}?alt=media`);return response.json();}
 export async function writeCmsFile(data){const token=await accessToken();const body=JSON.stringify(data,null,2);const fileId=await resolveFileId();if(!fileId){const metadata={name:'sadab-portfolio-cms.json',mimeType:'application/json',...(process.env.GOOGLE_DRIVE_FOLDER_ID?{parents:[process.env.GOOGLE_DRIVE_FOLDER_ID]}:{})};const boundary=`sadab_${crypto.randomBytes(12).toString('hex')}`;const multipart=[`--${boundary}\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n${JSON.stringify(metadata)}\r\n`,`--${boundary}\r\nContent-Type: application/json\r\n\r\n${body}\r\n`,`--${boundary}--`].join('');const response=await fetch(`${UPLOAD_BASE}/files?uploadType=multipart`,{method:'POST',headers:{Authorization:`Bearer ${token}`,'Content-Type':`multipart/related; boundary=${boundary}`},body:multipart});if(!response.ok)throw new Error(`Google Drive create failed: ${await response.text()}`);return(await response.json()).id;}const response=await fetch(`${UPLOAD_BASE}/files/${encodeURIComponent(fileId)}?uploadType=media`,{method:'PATCH',headers:{Authorization:`Bearer ${token}`,'Content-Type':'application/json'},body});if(!response.ok)throw new Error(`Google Drive update failed: ${await response.text()}`);return fileId;}
 export async function driveStatus(){try{const fileId=await resolveFileId();return {configured:true,connected:true,fileId:fileId||null,fileName:fileId?'sadab-portfolio-cms.json':null};}catch(error){return {configured:Boolean(process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL&&process.env.GOOGLE_PRIVATE_KEY&&(process.env.GOOGLE_DRIVE_FOLDER_ID||process.env.GOOGLE_DRIVE_FILE_ID)),connected:false,fileId:null,fileName:null,error:error.message};}}
-
-export async function readDriveImage(fileId) {
-  if (!fileId) throw new Error('Missing Drive file id');
-  const token = await accessToken();
-  const metaResponse = await fetch(`${DRIVE_BASE}/files/${encodeURIComponent(fileId)}?fields=id,name,mimeType,size,trashed`, {
-    headers: { Authorization: `Bearer ${token}` },
-  });
-  if (!metaResponse.ok) throw new Error(`Google Drive metadata error ${metaResponse.status}`);
-  const meta = await metaResponse.json();
-  if (meta.trashed || !String(meta.mimeType || '').startsWith('image/')) throw new Error('Drive file is not an available image');
-  const imageResponse = await fetch(`${DRIVE_BASE}/files/${encodeURIComponent(fileId)}?alt=media`, {
-    headers: { Authorization: `Bearer ${token}` },
-  });
-  if (!imageResponse.ok) throw new Error(`Google Drive image error ${imageResponse.status}`);
-  return { meta, response: imageResponse };
-}
+export async function readDriveImage(fileId){if(!fileId)throw new Error('Missing Drive file id');const token=await accessToken();const metaResponse=await fetch(`${DRIVE_BASE}/files/${encodeURIComponent(fileId)}?fields=id,name,mimeType,size,trashed`,{headers:{Authorization:`Bearer ${token}`}});if(!metaResponse.ok)throw new Error(`Google Drive metadata error ${metaResponse.status}`);const meta=await metaResponse.json();if(meta.trashed||!String(meta.mimeType||'').startsWith('image/'))throw new Error('Drive file is not an available image');const imageResponse=await fetch(`${DRIVE_BASE}/files/${encodeURIComponent(fileId)}?alt=media`,{headers:{Authorization:`Bearer ${token}`}});if(!imageResponse.ok)throw new Error(`Google Drive image error ${imageResponse.status}`);return {meta,response:imageResponse};}
