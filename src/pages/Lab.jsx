@@ -13,9 +13,7 @@ export default function Lab() {
   const [lightbox, setLightbox] = useState(null);
   useSEO({ title: 'Lab — Sadab.dev', description: 'Unfinished experiments, prototypes and weird ideas from Sadab.', path: '/lab' });
   const items = content.lab || [];
-  // Backward-compatible fallback: existing Lab gallery remains visible until the new
-  // labGallery collection is populated from the new CMS manager.
-  const gallery = Array.isArray(content.labGallery) ? content.labGallery : (content.gallery || []);
+  const gallery = Array.isArray(content.labGallery) ? content.labGallery : [];
   const filters = ['All', ...new Set(items.flatMap((x) => x.tags || []))];
   const visible = filter === 'All' ? items : items.filter((x) => (x.tags || []).includes(filter));
 
