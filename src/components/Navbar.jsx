@@ -9,6 +9,7 @@ const links = [
   { to: "/projects", label: "Projects" },
   { to: "/skills", label: "Skills" },
   { to: "/lab", label: "Lab" },
+  { to: "/gallery", label: "Gallery" },
   { to: "/now", label: "Now" },
   { to: "/contact", label: "Contact" },
 ];
@@ -39,12 +40,7 @@ export default function Navbar() {
 
         <nav className="nav-links">
           {links.map((l) => (
-            <NavLink
-              key={l.to}
-              to={l.to}
-              end={l.to === "/"}
-              className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}
-            >
+            <NavLink key={l.to} to={l.to} end={l.to === "/"} className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>
               {l.label}
             </NavLink>
           ))}
@@ -56,54 +52,13 @@ export default function Navbar() {
               <span className="theme-swatch" />
               Theme
             </button>
-            {open && (
-              <div className="theme-panel">
-                {THEMES.map((t) => (
-                  <button
-                    key={t.id}
-                    className={"theme-opt" + (theme === t.id ? " active" : "")}
-                    onClick={() => {
-                      setTheme(t.id);
-                      setOpen(false);
-                    }}
-                  >
-                    <span className="dot" style={{ background: t.dot }} />
-                    {t.label}
-                  </button>
-                ))}
-              </div>
-            )}
+            {open && <div className="theme-panel">{THEMES.map((t) => <button key={t.id} className={"theme-opt" + (theme === t.id ? " active" : "")} onClick={() => { setTheme(t.id); setOpen(false); }}><span className="dot" style={{ background: t.dot }} />{t.label}</button>)}</div>}
           </div>
-
-          <button
-            className="theme-btn mobile-toggle"
-            onClick={() => setMobileOpen((o) => !o)}
-            aria-label="Toggle menu"
-          >
-            {mobileOpen ? "✕" : "☰"}
-          </button>
+          <button className="theme-btn mobile-toggle" onClick={() => setMobileOpen((o) => !o)} aria-label="Toggle menu">{mobileOpen ? "✕" : "☰"}</button>
         </div>
       </div>
 
-      {mobileOpen && (
-        <nav
-          className="nav-links"
-          style={{ display: "flex", flexDirection: "column", padding: "8px 24px 18px", gap: 6 }}
-        >
-          {links.map((l) => (
-            <NavLink
-              key={l.to}
-              to={l.to}
-              end={l.to === "/"}
-              onClick={() => setMobileOpen(false)}
-              className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}
-              style={{ width: "100%" }}
-            >
-              {l.label}
-            </NavLink>
-          ))}
-        </nav>
-      )}
+      {mobileOpen && <nav className="nav-links" style={{ display: "flex", flexDirection: "column", padding: "8px 24px 18px", gap: 6 }}>{links.map((l) => <NavLink key={l.to} to={l.to} end={l.to === "/"} onClick={() => setMobileOpen(false)} className={({ isActive }) => "nav-link" + (isActive ? " active" : "")} style={{ width: "100%" }}>{l.label}</NavLink>)}</nav>}
     </header>
   );
 }
