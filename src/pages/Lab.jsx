@@ -13,7 +13,9 @@ export default function Lab() {
   const [lightbox, setLightbox] = useState(null);
   useSEO({ title: 'Lab — Sadab.dev', description: 'Unfinished experiments, prototypes and weird ideas from Sadab.', path: '/lab' });
   const items = content.lab || [];
-  const gallery = content.gallery || [];
+  // Backward-compatible fallback: existing Lab gallery remains visible until the new
+  // labGallery collection is populated from the new CMS manager.
+  const gallery = Array.isArray(content.labGallery) ? content.labGallery : (content.gallery || []);
   const filters = ['All', ...new Set(items.flatMap((x) => x.tags || []))];
   const visible = filter === 'All' ? items : items.filter((x) => (x.tags || []).includes(filter));
 
@@ -35,12 +37,14 @@ export default function Lab() {
       <div className="gallery-grid">{gallery.filter(x => x.visible !== false).map((item, i) => {
         const src = driveImage(item);
         return <button className="gallery-card" key={item.id || item.driveFileId || i} onClick={() => setLightbox(item)} aria-label={`Open ${item.title || 'gallery image'}`}>
-          <img src={src} alt={item.alt || item.title || 'Lab image'} loading="lazy" decoding="async" />
+          <div style={{ aspectRatio: `${Number(item.frameWidth) || 16} / ${Number(item.frameHeight) || 9}`, overflow: 'hidden', width: '100%' }}>
+            <img src={src} alt={item.alt || item.title || 'Lab image'} loading="lazy" decoding="async" style={{ width: '100%', height: '100%', display: 'block', objectFit: item.fit || 'cover', objectPosition: item.position || '50% 50%' }} />
+          </div>
           <span className="gallery-overlay"><strong>{item.title || 'Untitled experiment'}</strong>{item.caption && <small>{item.caption}</small>}</span>
         </button>;
       })}</div>
     </section>}
   </div>
-  {lightbox && <div className="lightbox" role="dialog" aria-modal="true" onClick={() => setLightbox(null)}><div className="lightbox-inner" onClick={e => e.stopPropagation()}><button className="lightbox-close" onClick={() => setLightbox(null)} aria-label="Close">×</button><img src={driveImage(lightbox)} alt={lightbox.alt || lightbox.title || 'Lab image'} /><div className="lightbox-caption"><strong>{lightbox.title}</strong>{lightbox.caption && <p>{lightbox.caption}</p>}</div></div></div>}
+  {lightbox && <div className="lightbox" role="dialog" aria-modal="true" onClick={() => setLightbox(null)}><div className="lightbox-inner" onClick={e => e.stopPropagation()}><button className="lightbox-close" onClick={() => setLightbox(null)} aria-label="Close">×</button><img src={driveImage(lightbox)} alt={lightbox.alt || lightbox.title || 'Lab image'} style={{ objectFit: lightbox.fit || 'cover', objectPosition: lightbox.position || '50% 50%' }} /><div className="lightbox-caption"><strong>{lightbox.title}</strong>{lightbox.caption && <p>{lightbox.caption}</p>}</div></div></div>}
   </div>;
 }
