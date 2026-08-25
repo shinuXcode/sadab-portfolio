@@ -8,7 +8,7 @@ export const defaultContent = {
   skills:[{id:'skill-1',name:'JavaScript / React',level:85,note:'Building interfaces and interactive web apps.'},{id:'skill-2',name:'Python',level:75,note:'Backend, scripting and automation.'},{id:'skill-3',name:'Linux / Shell',level:80,note:'Daily-driver tooling and system work.'}],
   funFacts:[{id:'fact-1',icon:'☕',label:'Coffee brewed',value:'500+ cups'},{id:'fact-2',icon:'🐧',label:'Daily driver',value:'Linux'}],
   lab:[{id:'lab-1',title:'New experiment',desc:'A placeholder for an unfinished build.',tags:['EXPERIMENT'],status:'IN PROGRESS',link:'#',icon:'🧪',image:'',reason:'',next:'',featured:false}],
-  gallery:[], guestbook:[], inbox:[], revisions:[], scheduled:[],
+  gallery:[], labGallery:[], guestbook:[], inbox:[], revisions:[], scheduled:[],
   analytics:{visits:[]},
   settings:{siteName:'Sadab.dev',siteDescription:'Md Sadab — developer portfolio, projects and experimental lab.',showAvailability:true,enableAIGuide:true,enableTerminal:true,enableGuestbook:true,enableAnalytics:true,enableGallery:true,enableEasterEggs:true,enableAnimations:true,maintenanceMode:false,announcementBar:true,themeDefault:'dark',accentLabel:'NEON LIME'},
 };
